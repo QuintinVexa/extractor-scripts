@@ -1,4 +1,3 @@
-// extractor-v3.3.js
 // Full Extraction & Webhook Script V3.3 (All Metrics + Popover Distance Matching) is running
 
 (async function () {
@@ -43,14 +42,19 @@
 
   async function extractData() {
     const labels = [
+      // 🔵 Google
       ["Google Ads Report", true],
       ["Google Total Scheduled + Completed"],
       ["Total Google Leads"],
       ["Google Leads Scheduled + Completed"],
+
+      // 🔵 Facebook
       ["Facebook Ads Report", true],
       ["Facebook Total Scheduled + Completed"],
       ["Total Facebook Leads"],
       ["Facebook Leads Scheduled + Completed"],
+
+      // 🔵 Paid Unattributable
       ["Facebook/Google Total Scheduled + Completed"],
       ["Total Facebook/Google Leads"],
       ["Facebook/Google Leads Scheduled + Completed"]
@@ -105,6 +109,7 @@
           }
         }
       } else {
+        // Prefer svg text if present
         valueElement = card.querySelector('svg text') ||
                        card.querySelector('.hl-card-content .text-3xl') ||
                        card.querySelector('.hl-card-content text');
